@@ -1,77 +1,64 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>Advanced CSS - Assignment 1</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-
-
 
     <style>
+        /* 1. Linkovi koji vode ka Google domenima */
+        a[href*="google"] {
+            color: green;
+        }
 
+        /* 2. Link koji vodi ka LINKgroup sajtu */
+        a[href*="link-group.eu"] {
+            color: red;
+        }
 
-a[href*="google.com"] {
-  color: green;
-}
+        /* 3. Naizmenično bojenje paragrafa unutar #second-div */
+        #second-div p:nth-child(2),
+        #second-div p:nth-child(4),
+        #second-div p:nth-child(6) {
+            color: red;
+        }
 
+        #second-div p:nth-child(3),
+        #second-div p:nth-child(5),
+        #second-div p:nth-child(7) {
+            color: blue;
+        }
 
-a[href*="link-group"] {
-  color: red;
-}
+        /* 4. Dodavanje "NEW" na kraj Paragraph 2 i 3 */
+        #first-div > p:nth-of-type(1)::after {
+            content: " NEW";
+            color: yellow;
+            font-weight: bold;
+        }
 
-#second-div p:nth-of-type(odd) {
-  color: red;
-}
+        #first-div > p:nth-of-type(2)::after {
+            content: " NEW";
+            color: yellow;
+            font-weight: bold;
+        }
 
-#second-div p:nth-of-type(even) {
-  color: blue;
-}
-
-#first-div p:nth-of-type(2)::after {
-  content: " NEW";
-  color: yellow;
-  font-weight: bold;
-}
-
-
-/* Dodaje "NEW" na kraj Paragrafa 3 unutar #first-div */
-#first-div p:nth-of-type(3)::after {
-  content: " NEW";
-  color: yellow;
-  font-weight: bold;
-
-}
-
-
-/* 5. Promeni stil Paragrafa 10 na hover */
-#second-div p:nth-of-type(7):hover {
-  font-style: italic}
-
-
-
-
-
-
-
-
-
-
+        /* 5. Hover efekat na Paragraph 10 */
+        #second-div p:nth-child(8):hover {
+            font-style: italic;
+        }
     </style>
 </head>
-
 <body>
     <h1>Main Heading</h1>
     <p>Paragraph 1</p>
     <a href="https://www.google.com/">Google</a>
     <a href="https://www.google.com/doodles">Google Doodles</a>
     <a href="https://www.link-group.eu/" target="_blank">Goto Link Group</a>
+
     <div id="first-div">
         <h2>Subheading</h2>
         <p>Paragraph 2</p>
         <p>Paragraph 3</p>
+
         <div id="second-div">
             <h3>Sub subheading</h3>
             <p>Paragraph 4</p>
@@ -83,8 +70,8 @@ a[href*="link-group"] {
             <p>Paragraph 10</p>
         </div>
     </div>
+
     <p>Paragraph 9</p>
     <p>Paragraph 10</p>
 </body>
-
 </html>
